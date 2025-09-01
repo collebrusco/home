@@ -14,8 +14,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-
 #export PINTOS=/Users/frankcollebrusco/UT/461s/pintos-fall-2024-frank-and-rocco
 #export PATH=/Users/frankcollebrusco/opt/anaconda3/bin:/Library/Frameworks/Python.framework/Versions/#3.11/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/Applications/Sublime Text.app/#Contents/SharedSupport/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/#sbin:/sbin:~/dev/lib:/Library/TeX/texbin:/Library/Apple/usr/bin:/utils
 
@@ -37,6 +35,15 @@ git-frank-init() {
     git-blank-gitignore
     git-touch README.md
     git status
-    git-new-remote
+}
+
+git-flgl-init() {
+    git init
+    git-touch README.md
+    git submodule add git@github.com:collebrusco/flgl.git lib/flgl
+    git submodule update -v --init --recursive 
+    source ./lib/flgl/user/setup.sh
+    git add src/ CMakeLists.txt .gitignore Makefile
+    git status
 }
 
