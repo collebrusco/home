@@ -28,10 +28,15 @@ git-blank-gitignore() {
     echo "**/*.DS_Store\n*.o\nbuild\nign\n" > .gitignore && git add .gitignore
 }
 
+git-new-remote() {
+    open "https://github.com/new"
+}
+
 git-frank-init() {
     git init
     git-blank-gitignore
     git-touch README.md
-    open "https://github.com/new"
+    git status
+    git-new-remote
 }
 
